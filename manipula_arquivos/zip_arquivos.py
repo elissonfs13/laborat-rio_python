@@ -1,6 +1,5 @@
-from zipfile import ZipFile
 import os
-
+from zipfile import ZipFile
 
 caminho_procura = input('Digite um caminho: ')
 caminho_procura = caminho_procura.replace('"', '').replace("'", '').strip()
