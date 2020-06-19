@@ -1,12 +1,12 @@
-from re import sub
 from random import randint
+from re import sub
 
 
 # Função de geração de dígitos de um CNPJ
 def gera_digito(cnpj, digito):
     regressivos = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
     if (digito == 1):
-        regressivos = regressivos[:1]
+        regressivos = regressivos[1:]
         novo_cnpj = cnpj[:-2]
     elif (digito == 2):
         novo_cnpj = cnpj
@@ -23,6 +23,10 @@ def gera_digito(cnpj, digito):
 # Função de validação de CNPJ
 def valida_cnpj(cnpj):
     cnpj = sub(r'[^0-9]', '', cnpj)
+
+    if not cnpj or len(cnpj) != 14:
+        return False
+
     try:
         novo_cnpj = gera_digito(cnpj=cnpj, digito=1)
         novo_cnpj = gera_digito(cnpj=novo_cnpj, digito=2)

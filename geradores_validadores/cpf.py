@@ -1,5 +1,5 @@
-from re import sub
 from random import randint
+from re import sub
 
 
 # Função de geração de dígitos de um CPF
@@ -23,6 +23,9 @@ def gera_digitos(numero):
 
 # Função de validação de CPF
 def valida_cpf(cpf):
+    if not cpf or len(cpf) != 11:
+        return False
+
     novo_cpf = gera_digitos(cpf[:-2])
     sequencia = novo_cpf == str(novo_cpf[0]) * len(cpf)
     if cpf == novo_cpf and not sequencia:
