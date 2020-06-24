@@ -2,7 +2,7 @@
 
 import socket
 
-target_host = 'localhost'
+target_host = '192.168.18.52'
 target_port = 9999
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
